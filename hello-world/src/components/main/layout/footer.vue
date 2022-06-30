@@ -4,13 +4,13 @@
         <div class="container-fluid" style="background:#E4192B; margin-top: 92px;">
     <div class="container">
         <div class="row subscriber_wrapper" :class="{'subscriber_wrapper_mobile': footerWidth}">
-            <div class="col-12 col-sm-12 col-md-6 signle_subscriber">
-                <div>
+            <div class="col-12 col-sm-12 col-md-5 signle_subscriber">
+                <div style="margin-top:15px">
                     <h2>Sign Up To Receive </h2>
                     <h3>Property News</h3>
                 </div>
             </div>
-            <div class="col-12 col-sm-12 col-md-6 signle_subscriber">
+            <div class="col-12 col-sm-12 col-md-7 signle_subscriber">
                     <div class="subscriber-sec">
                     <form method="post">
                         <div class="row">
@@ -111,6 +111,8 @@ export default {
                 width: 191px;
                 border-radius: 30px;
                 margin-top: 44px;
+                display: inline;
+                padding-left: 20px;
             }
             button{
                 height: 45px;

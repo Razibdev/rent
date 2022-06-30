@@ -19,7 +19,7 @@
                       <select id="mounth">
                         <option value="hide">We Demand</option>
                         <option value="january">January</option>
-                    </select> 
+                       </select> 
 
                       <select id="year">
                         <option value="hide">We Recommend</option>
@@ -126,7 +126,7 @@
                       
                       </select>
                       <div class="low_now_ok" :class="{'low_now_ok_mobile': homeWidth}" style="position: relative;
-        display: inline; float: right;right: 47px;right: 152px;">
+        display: inline; float: right;">
                         <button type="button" @click="advanced" class="search_button advanced_search">ADVANCED</button>
 
                         <button type="button"  class="search_button clear_search">CLEAR</button>
@@ -273,26 +273,34 @@
                           <div class="image" :class="{'image_mobile': homeWidth}">
                             <p>SALE</p>
 
-                           <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                              <!-- Indicators -->
-                              <ol class="carousel-indicators">
-                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                              </ol>
-
-                              <!-- Wrapper for slides -->
-                              <div class="carousel-inner" role="listbox">
-                                <div class="item active">
-                                  <img src="@/assets/home/property1.jpg" alt="...">
-                                  
+                          <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                              <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+                              <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+                              <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                              <div class="carousel-item active">
+                                <img src="@/assets/home/property1.jpg" class="d-block w-100" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                 
                                 </div>
-                                <div class="item">
-                                  <img src="@/assets/home/property.jpg" alt="...">
+                              </div>
+                              <div class="carousel-item">
+                                <img src="@/assets/home/property1.jpg" class="d-block w-100" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                 
+                                </div>
+                              </div>
+                              <div class="carousel-item">
+                                <img src="@/assets/home/property1.jpg" class="d-block w-100" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                 
                                 </div>
                               </div>
                             </div>
-
+                            
+                          </div>
 
                           </div>
                           <div class="icon">
@@ -319,47 +327,57 @@
                             <div class="property_second" :class="{'property_second_mobile':homeWidth}">
                               <ul>
                                 <li><span><img src="@/assets/icon/small/bed.png" alt="bed icon"></span> 3+ living room</li>
-                                <li><span><img src="@/assets/icon/small/bath.png" alt="bath icon"></span>2</li>
-                                <li><span><img src="@/assets/icon/small/vector-square.png" alt=""></span> 160 m<sup>2</sup></li>
+                                <li> &nbsp;  <span><img src="@/assets/icon/small/bath.png" alt="bath icon"></span>2</li>
+                                <li>  &nbsp;<span><img src="@/assets/icon/small/vector-square.png" alt=""></span> 160 m<sup>2</sup></li>
                               </ul>
                             </div>
 
                             <div class="property_third">
                               <div class="row">
-                                <div class="col-4 col-sm-4 col-md-4">
-                                    <h4 style="width:50%; float:left">520.000 €</h4>
+                                <div class="col-5 col-sm-5 col-md-5">
+                                    <h4>520.000€</h4>
                                 </div>
-                                <div class="col-8 col-sm-8 col-md-8">
-                                  <h4 style="width:50%; float:left">7 Days Auction</h4>
+                                <div class="col-7 col-sm-7 col-md-7">
+                                  <h4>7 Days Auction</h4>
                                 </div>
                               </div>
                             </div>
                         </div>
-
 
                          <div class="col-12 col-sm-6 col-md-3">
-                          <div class="image">
-                               <p>SALE</p>
+                          <div class="image" :class="{'image_mobile': homeWidth}">
+                            <p>SALE</p>
 
-                           <div id="carousel-1" class="carousel slide" data-ride="carousel">
-                              <!-- Indicators -->
-                              <ol class="carousel-indicators">
-                                <li data-target="#carousel-1" data-slide-to="0" class="active"></li>
-                                <li data-target="#carousel-1" data-slide-to="1"></li>
-                                <li data-target="#carousel-1" data-slide-to="2"></li>
-                              </ol>
 
-                              <!-- Wrapper for slides -->
-                              <div class="carousel-inner" role="listbox">
-                                <div class="item active">
-                                  <img src="@/assets/home/property1.jpg" alt="...">
-                                  
+                          <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                              <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+                              <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+                              <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                              <div class="carousel-item active">
+                                <img src="@/assets/home/property1.jpg" class="d-block w-100" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                 
                                 </div>
-                                <div class="item">
-                                  <img src="@/assets/home/property.jpg" alt="...">
+                              </div>
+                              <div class="carousel-item">
+                                <img src="@/assets/home/property1.jpg" class="d-block w-100" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                 
+                                </div>
+                              </div>
+                              <div class="carousel-item">
+                                <img src="@/assets/home/property1.jpg" class="d-block w-100" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                  
                                 </div>
                               </div>
                             </div>
+                            
+                          </div>
+
                           </div>
                           <div class="icon">
                             <span><img src="@/assets/icon/small/phone-alt.png" alt=""></span>
@@ -375,23 +393,25 @@
                             <span><img src="@/assets/icon/small/download.png" alt=""></span>
                           </div>
 
-                            <hr style="margin: 10px 0px;">
+                         <hr style="margin: 10px 0px;">
+
 
                             <div class="property_title">
                               <h4>Pantovčak, luxury apartment, 2 parking spaces, rent</h4>
                             </div>
 
-                            <div class="property_second">
+                            <div class="property_second" :class="{'property_second_mobile':homeWidth}">
                               <ul>
-                                <li><span><img src="@/assets/icon/small/bed.png" alt="bed icon"></span>&nbsp; 3+ living room</li>
-                                <li><span><img src="@/assets/icon/small/bath.png" alt="bath icon"></span>2</li>
+                                <li><span><img src="@/assets/icon/small/bed.png" alt="bed icon"></span> 3+ living room</li>
+                                <li> &nbsp; &nbsp;<span><img src="@/assets/icon/small/bath.png" alt="bath icon"></span>2</li>
                                 <li><span><img src="@/assets/icon/small/vector-square.png" alt=""></span> 160 m<sup>2</sup></li>
                               </ul>
                             </div>
+
                             <div class="property_third">
                               <div class="row">
                                 <div class="col-5 col-sm-5 col-md-5">
-                                    <h4>520.000 €</h4>
+                                    <h4>520.000€</h4>
                                 </div>
                                 <div class="col-7 col-sm-7 col-md-7">
                                   <h4>7 Days Auction</h4>
@@ -400,29 +420,40 @@
                             </div>
                         </div>
 
-                        <div class="col-12 col-sm-6 col-md-3">
-                          <div class="image">
-                               <p>SALE</p>
+                         <div class="col-12 col-sm-6 col-md-3">
+                          <div class="image" :class="{'image_mobile': homeWidth}">
+                            <p>SALE</p>
 
-                           <div id="carousel-1" class="carousel slide" data-ride="carousel">
-                              <!-- Indicators -->
-                              <ol class="carousel-indicators">
-                                <li data-target="#carousel-1" data-slide-to="0" class="active"></li>
-                                <li data-target="#carousel-1" data-slide-to="1"></li>
-                                <li data-target="#carousel-1" data-slide-to="2"></li>
-                              </ol>
 
-                              <!-- Wrapper for slides -->
-                              <div class="carousel-inner" role="listbox">
-                                <div class="item active">
-                                  <img src="@/assets/home/property1.jpg" alt="...">
-                                  
+                          <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                              <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+                              <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+                              <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                              <div class="carousel-item active">
+                                <img src="@/assets/home/property1.jpg" class="d-block w-100" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                 
                                 </div>
-                                <div class="item">
-                                  <img src="@/assets/home/property.jpg" alt="...">
+                              </div>
+                              <div class="carousel-item">
+                                <img src="@/assets/home/property1.jpg" class="d-block w-100" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                 
+                                </div>
+                              </div>
+                              <div class="carousel-item">
+                                <img src="@/assets/home/property1.jpg" class="d-block w-100" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                 
                                 </div>
                               </div>
                             </div>
+                            
+                          </div>
+
                           </div>
                           <div class="icon">
                             <span><img src="@/assets/icon/small/phone-alt.png" alt=""></span>
@@ -438,23 +469,25 @@
                             <span><img src="@/assets/icon/small/download.png" alt=""></span>
                           </div>
 
-                            <hr style="margin: 10px 0px;">
+                         <hr style="margin: 10px 0px;">
+
 
                             <div class="property_title">
                               <h4>Pantovčak, luxury apartment, 2 parking spaces, rent</h4>
                             </div>
 
-                            <div class="property_second">
+                            <div class="property_second" :class="{'property_second_mobile':homeWidth}">
                               <ul>
-                                <li><span><img src="@/assets/icon/small/bed.png" alt="bed icon"></span>&nbsp; 3+ living room</li>
-                                <li><span><img src="@/assets/icon/small/bath.png" alt="bath icon"></span>2</li>
+                                <li><span><img src="@/assets/icon/small/bed.png" alt="bed icon"></span> 3+ living room</li>
+                                <li> &nbsp; &nbsp;<span><img src="@/assets/icon/small/bath.png" alt="bath icon"></span>2</li>
                                 <li><span><img src="@/assets/icon/small/vector-square.png" alt=""></span> 160 m<sup>2</sup></li>
                               </ul>
                             </div>
+
                             <div class="property_third">
                               <div class="row">
                                 <div class="col-5 col-sm-5 col-md-5">
-                                    <h4>520.000 €</h4>
+                                    <h4>520.000€</h4>
                                 </div>
                                 <div class="col-7 col-sm-7 col-md-7">
                                   <h4>7 Days Auction</h4>
@@ -463,30 +496,40 @@
                             </div>
                         </div>
 
+                         <div class="col-12 col-sm-6 col-md-3">
+                          <div class="image" :class="{'image_mobile': homeWidth}">
+                            <p>SALE</p>
 
-                        <div class="col-12 col-sm-6 col-md-3">
-                          <div class="image">
-                               <p>SALE</p>
 
-                           <div id="carousel-1" class="carousel slide" data-ride="carousel">
-                              <!-- Indicators -->
-                              <ol class="carousel-indicators">
-                                <li data-target="#carousel-1" data-slide-to="0" class="active"></li>
-                                <li data-target="#carousel-1" data-slide-to="1"></li>
-                                <li data-target="#carousel-1" data-slide-to="2"></li>
-                              </ol>
-
-                              <!-- Wrapper for slides -->
-                              <div class="carousel-inner" role="listbox">
-                                <div class="item active">
-                                  <img src="@/assets/home/property1.jpg" alt="...">
+                          <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                              <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+                              <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+                              <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                              <div class="carousel-item active">
+                                <img src="@/assets/home/property1.jpg" class="d-block w-100" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                 
+                                </div>
+                              </div>
+                              <div class="carousel-item">
+                                <img src="@/assets/home/property1.jpg" class="d-block w-100" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
                                   
                                 </div>
-                                <div class="item">
-                                  <img src="@/assets/home/property.jpg" alt="...">
+                              </div>
+                              <div class="carousel-item">
+                                <img src="@/assets/home/property1.jpg" class="d-block w-100" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                 
                                 </div>
                               </div>
                             </div>
+                            
+                          </div>
+
                           </div>
                           <div class="icon">
                             <span><img src="@/assets/icon/small/phone-alt.png" alt=""></span>
@@ -502,23 +545,25 @@
                             <span><img src="@/assets/icon/small/download.png" alt=""></span>
                           </div>
 
-                            <hr style="margin: 10px 0px;">
+                         <hr style="margin: 10px 0px;">
+
 
                             <div class="property_title">
                               <h4>Pantovčak, luxury apartment, 2 parking spaces, rent</h4>
                             </div>
 
-                            <div class="property_second">
+                            <div class="property_second" :class="{'property_second_mobile':homeWidth}">
                               <ul>
-                                <li><span><img src="@/assets/icon/small/bed.png" alt="bed icon"></span>&nbsp; 3+ living room</li>
-                                <li><span><img src="@/assets/icon/small/bath.png" alt="bath icon"></span>2</li>
+                                <li><span><img src="@/assets/icon/small/bed.png" alt="bed icon"></span> 3+ living room</li>
+                                <li> &nbsp; &nbsp;<span><img src="@/assets/icon/small/bath.png" alt="bath icon"></span>2</li>
                                 <li><span><img src="@/assets/icon/small/vector-square.png" alt=""></span> 160 m<sup>2</sup></li>
                               </ul>
                             </div>
+
                             <div class="property_third">
                               <div class="row">
                                 <div class="col-5 col-sm-5 col-md-5">
-                                    <h4>520.000 €</h4>
+                                    <h4>520.000€</h4>
                                 </div>
                                 <div class="col-7 col-sm-7 col-md-7">
                                   <h4>7 Days Auction</h4>
@@ -527,73 +572,6 @@
                             </div>
                         </div>
 
-                        <div class="col-12 col-sm-6 col-md-3">
-                          <div class="image">
-                               <p>SALE</p>
-
-                           <div id="carousel-1" class="carousel slide" data-ride="carousel">
-                              <!-- Indicators -->
-                              <ol class="carousel-indicators">
-                                <li data-target="#carousel-1" data-slide-to="0" class="active"></li>
-                                <li data-target="#carousel-1" data-slide-to="1"></li>
-                                <li data-target="#carousel-1" data-slide-to="2"></li>
-                              </ol>
-
-                              <!-- Wrapper for slides -->
-                              <div class="carousel-inner" role="listbox">
-                                <div class="item active">
-                                  <img src="@/assets/home/property1.jpg" alt="...">
-                                  
-                                </div>
-                                <div class="item">
-                                  <img src="@/assets/home/property.jpg" alt="...">
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="icon">
-                            <span><img src="@/assets/icon/small/phone-alt.png" alt=""></span>
-
-                             <span><img src="@/assets/icon/small/envelope-open.png" alt=""></span>
-
-                            <span><img src="@/assets/icon/small/share-alt.png" alt=""></span>
-
-                            <span><img src="@/assets/icon/small/envelope-open-text.png" alt=""></span>
-
-                            <span><img src="@/assets/icon/small/arrows-alt-h.png" alt=""></span>
-
-                            <span><img src="@/assets/icon/small/download.png" alt=""></span>
-                          </div>
-
-                            <hr style="margin: 10px 0px;">
-
-                            <div class="property_title">
-                              <h4>Pantovčak, luxury apartment, 2 parking spaces, rent</h4>
-                            </div>
-
-                            <div class="property_second">
-                              <ul>
-                                <li><span><img src="@/assets/icon/small/bed.png" alt="bed icon"></span>&nbsp; 3+ living room</li>
-                                <li><span><img src="@/assets/icon/small/bath.png" alt="bath icon"></span>2</li>
-                                <li><span><img src="@/assets/icon/small/vector-square.png" alt=""></span> 160 m<sup>2</sup></li>
-                              </ul>
-                            </div>
-                            <div class="property_third">
-                              <div class="row">
-                                <div class="col-5 col-sm-5 col-md-5">
-                                    <h4>520.000 €</h4>
-                                </div>
-                                <div class="col-7 col-sm-7 col-md-7">
-                                  <h4>7 Days Auction</h4>
-                                </div>
-                              </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-sm-12 col-md-12" style="text-align:center">
-                          <button><img src="@/assets/icon/small/load_more_listing.png" alt=""></button>
-                        </div>
-                      
                       </div>
                   </div>
                   
@@ -879,9 +857,7 @@ export default {
       margin-left: 10px;
     }
 
-    .property_second_mobile{
-      margin-left: 10px;
-    }
+    
 
     .investor_image_mobile{
       width:100% !important;
@@ -1015,7 +991,7 @@ export default {
           .featured_real_state_part_image{
             width: 290px;
             height: 285px;
-            padding-right: 5px;
+            padding-right: 10px;
 
             &:nth-child(4){
                padding-right: 0;
@@ -1043,7 +1019,7 @@ export default {
 
 
           .move_to_neighbouring_image{
-            padding-right: 5px;
+            padding-right: 10px;
             width: 293.22px;
             height: 451.75px;
           }
@@ -1078,7 +1054,7 @@ export default {
         }
         .property_wrapper{
           .image{
-            padding: 5px 0px;
+            padding: 5px 5px;
             position: relative;
             width: 291px;
             p{
@@ -1086,7 +1062,7 @@ export default {
               z-index: 1;
               right: 0;
               margin-top: 15px;
-              margin-right: 6px;
+              margin-right: 11px;
               padding: 8px;
               background: green;
               color: #fff;
@@ -1135,11 +1111,16 @@ export default {
             overflow: hidden;
             width: 100%;
             li{
-              width: 65px;
+              width: 50px;
               float: left;
               margin-left: -15px;
+              // padding: 0px 4px;
               &:nth-child(1){
-                width: 137px;
+                width: 130px !important;
+              }
+
+               &:nth-child(3){
+                width: 80px !important;
               }
             }
           }

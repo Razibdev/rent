@@ -112,7 +112,7 @@
                     
                     </select>
                     <div class="low_now_ok" :class="{'low_now_ok_mobile': searchWidth}" style="position: relative;
-      display: inline; float: right;right: 47px;right: 152px;">
+      display: inline; float: right;">
                       <button type="button" class="search_button advanced_search">ADVANCED</button>
 
                       <button type="button"  class="search_button clear_search">CLEAR</button>
@@ -387,7 +387,7 @@ export default {
 }
 
 .low_now_ok{
-    right: 84px !important;
+    right: -1px !important;
     margin-top: -5px;
 }
 

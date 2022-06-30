@@ -11,19 +11,16 @@
             <div class="col-12 col-sm-12 col-md-6 form-contact-wrapper" style="background:#f5f5f5;">
                 <form action="" method="post">
                     <div class="form-group">
-                        <input type="text" name="username" v-model="form.username" id="username" placeholder="Your name and surename*" class="form-control" required>
+                        <input style="display:block; width:100%; padding-left:10px;" type="text" name="username" v-model="form.username" id="username" placeholder="Your name and surename*" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <input type="email" name="email" id="email" v-model="form.email" placeholder="Your Email*" class="form-control" required>
+                        <input style="display:block; width:100%; padding-left:10px;"  type="email" name="email" id="email" v-model="form.email" placeholder="Your Email*" class="form-control" required>
                     </div>
 
                     <div class="form-group">
-                        <input type="tel" name="phone" id="phone" v-model="form.phone" placeholder="Your Phone Number*" class="form-control" required >
+                        <input style="display:block; width:100%; padding-left:10px;"  type="tel" name="phone" id="phone" v-model="form.phone" placeholder="Your Phone Number*" class="form-control" required >
                     </div>
 
-                     <div class="form-group">
-                        <input type="tel" name="phone" id="phone" v-model="form.phone" placeholder="Your Phone Number*" class="form-control" required>
-                    </div>
 
                     <div class="form-group">
                         <textarea name="message" id="message" cols="30" rows="10" v-model="form.message" class="form-control" required></textarea>

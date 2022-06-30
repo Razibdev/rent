@@ -3,13 +3,22 @@
         <div class="container-fluid" style="background: #231F20;">
             <div class="header-wrraper-main">
                 <div class="container">
-                    <div class="header" :class="{'header_main':headerWidth}">
-                        <ul :class="{'header-ul':headerWidth}">
-                            <li :class="{'header-li':headerWidth}">Call Us Now: <a href="tel:+385 91 310 8888"> +385 91 310 8888</a> <span>|</span></li>
-                            <li :class="{'header-li':headerWidth}">Email for any inquires: <a href="#">  luksuzno@Luksuzno.com</a></li>
-                            <li :class="{'header-li':headerWidth}"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i> <i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                        </ul>
-                    
+                    <div class="row  header" :class="{'header_mobile':headerWidth}">
+                    <div class="col-10 col-sm-10 col-md-10" style="padding: 0 10px;">
+                        <div class="row">
+                            <div class="col-12 col-sm-12 col-md-5">
+                                <p :class="{'mobile_mobile_part_header': headerWidth}" style="float:right;">Call Us Now: <a href="tel:+385 91 310 8888">+385 91 310 8888</a> </p>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-7">
+                                <p style="float:left" :class="{'mobile_mobile_part_header': headerWidth}">Email : <span v-if="!headerWidth">for any inquires:</span>  <a href="#">luksuzno@Luksuzno.com</a></p>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="col-2 col-sm-2 col-md-2" :class="{'mobile_social_section_part': headerWidth}" style="padding:0 5px;">
+                        <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i> <i class="fa fa-instagram" aria-hidden="true"></i></a>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -58,50 +67,50 @@ export default {
 }
 </script>
 
+<style>
+    .mobile_mobile_part_header{
+        float: left !important;
+    }
+    .mobile_social_section_part{
+        margin-top: 20px !important;
+    }
+    .header_mobile{
+        height:91px;
+
+    }
+</style>
+
 <style lang="scss" scope>
     
     .header-wrraper-main{
         background: #231F20;
         color:#ffffff;
         .header{
-            height: 49px;
+            height:49px;
             vertical-align: middle;
             padding-top: 15px;
             word-break: wrap;
             text-align: center;
-            width: 100%;
 
-            ul{
-                list-style: none;
-                width: 733px;
-                margin-left: 200px ;
-                li{
-                    width: 210px;
-                    float: left;
-                    a{
-                        text-decoration: none;
-                        color: #ffffff;
-                        i{
-                            padding:4px 5px;
-                            border: 1px solid #ffffff;
-                            border-radius: 50%;
-                            margin-left: 10px;
-                            background: #231F20;
-                            color: #ffffff;
-                        }
+            a{
+                font-family: 'Lato';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 17px;
+                line-height: 20px;
+                text-align: center;
+                color: #FFFFFF;
+                text-decoration: none;
+                    
+                }
+
+                i{
+                    margin-right: 4px;
+                    &:last-child{
+                        margin-right:0px;
                     }
                 }
-                li:nth-child(2){
-                   width: 291px;
-                }
-                li:last-child{
-                    width: 100px;
-                }
 
-
-            }
-           
-           
         }
     }
     .main-contact-wrapper{
