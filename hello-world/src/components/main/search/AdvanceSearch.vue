@@ -122,7 +122,7 @@
                 </div>
               </div>
 
-              <div class="row" style="margin-top: 30px">
+              <div class="row check-box-search" style="margin-top: 30px">
                 <div class="col-6 col-sm-6 col-md-3">
                      <div class="form-group">
                     <input type="checkbox" id="html">
@@ -246,7 +246,8 @@
   padding: 50px;
 }
 
-.form-group {
+.check-box-search{
+  .form-group {
   display: block;
   margin-bottom: 15px;
 }
@@ -291,6 +292,9 @@
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
 }
+}
+
+
 </style>
 
 
@@ -388,7 +392,7 @@ export default {
 
 .low_now_ok{
     right: -1px !important;
-    margin-top: -5px;
+    margin-top: -3px;
 }
 
 .low_now_ok_mobile{

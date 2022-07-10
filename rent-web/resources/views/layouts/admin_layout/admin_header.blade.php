@@ -96,7 +96,11 @@
 
                     <a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a>
 
-                    <a class="nav-link" href="#"><i class="fa fa-power -off"></i>Logout</a>
+                    <a class="nav-link" href="#">
+                        <form action="{{route('admin.logout')}}" method="post"> @csrf
+                            <button style="border: none; cursor: pointer;"><i class="fa fa-power -off"></i>Logout</button>
+                        </form>
+                    </a>
                 </div>
             </div>
 

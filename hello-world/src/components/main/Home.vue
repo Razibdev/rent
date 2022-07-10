@@ -28,7 +28,7 @@
                       </select>
 
                       <select id="feature">
-                        <option value="hide">Feature</option>
+                        <option value="hide">Featured</option>
                         <option value="2010">2010</option>
                       </select>
 
@@ -131,7 +131,7 @@
 
                         <button type="button"  class="search_button clear_search">CLEAR</button>
 
-                        <button type="button" class="search_button bymap_search">BYMAP</button>
+                        <button type="button" @click="bymapd" class="search_button bymap_search">ByMap</button>
                       </div>
                 </div>
               </div>
@@ -142,7 +142,7 @@
       </div>
       <div class="container-fluid" v-if="advance_show">
         <div class="container">
-             <div class="row" style="margin-top: 30px;">
+             <div class="row check-box-search" style="margin-top: 30px;">
                 <div class="col-6 col-sm-6 col-md-3">
                      <div class="form-group">
                     <input type="checkbox" id="html">
@@ -258,6 +258,9 @@
                 </div>
         </div>
       </div>
+
+     <PageWithAddress v-if="bymap" />
+
       <div class="container-fluid">
            <div class="property_section" style="overflow:hidden; ">
               <div class="container">
@@ -648,7 +651,7 @@
                 </div>
 
                 <div class="col-6 col-sm-4 col-md-3 single_investor">
-                  <img class="investor_image" :class="{'investor_image_mobile':homeWidth}" src="@/assets/home/rectangle_43_3.jpg" alt="for investors">
+                  <img class="investor_image" :class="{'investor_image_mobile':homeWidth}" src="@/assets/home/mount_rezion.png" alt="for investors">
                   <h5>Land For Residential And Business Building</h5>
                   <button><img src="@/assets/icon/small/offer_arrow_right.png" alt=""></button>
                 </div>
@@ -749,8 +752,11 @@
 </template>
 
 <script>
-
+import PageWithAddress from '@/components/layout/search/PageWithAddress.vue'
 export default {
+  components:{
+    PageWithAddress
+  },
     setup() {
         
     },
@@ -758,12 +764,17 @@ export default {
      data(){
         return{
             homeWidth: false,
-            advance_show:false
+            advance_show:false,
+            bymap:false
         }
         },
         methods:{
           advanced(){
             this.advance_show = !this.advance_show;
+          },
+
+          bymapd(){
+            this.bymap = !this.bymap;
           }
         },
 

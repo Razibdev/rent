@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\Admin\PropertyController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\Auth\AdminController;
+use App\Http\Controllers\Admin\ContactController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,4 +27,19 @@ Route::post('/test', [TestController::class, 'index']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/admin/dashboard', [DashboardController::class, 'dashboard'])->name('admin.dashboard');
+Route::match(['get', 'post'],'/admin/login', [AdminController::class, 'adminLogin'])->name('admin.login');
+
+
+Route::group(['prefix'=>'admin','middleware' => 'auth:admin'], function (){
+    Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('admin.dashboard');
+    Route::post('/logout', [AdminController::class, 'adminLogout'])->name('admin.logout');
+
+
+    Route::get('/add-property', [PropertyController::class, 'addProperty'])->name('admin.add.property');
+    Route::get('/view-property', [PropertyController::class, 'viewProperty'])->name('admin.view.property');
+
+    Route::get('/view-contact', [ContactController::class, 'index'])->name('admin.view.contact');
+    Route::get('/view-subscriber', [ContactController::class, 'subscriber'])->name('admin.view.subscriber');
+
+
+});
