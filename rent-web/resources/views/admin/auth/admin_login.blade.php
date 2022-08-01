@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Ela Admin - HTML5 Admin Template</title>
+    <title>Liksuzno</title>
     <meta name="description" content="Ela Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -32,9 +32,9 @@
 <div class="sufee-login d-flex align-content-center flex-wrap">
     <div class="container">
         <div class="login-content">
-            <div class="login-logo">
+            <div class="login-logo" style="background: white;">
                 <a href="{{url('/')}}">
-                    <img class="align-content" src="{{asset('admin/images/logo.png')}}" alt="">
+                    <img class="align-content" src="{{asset('admin/logo.png')}}" alt="">
                 </a>
             </div>
             <div class="login-form">

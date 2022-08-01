@@ -9,7 +9,7 @@
             </div>
 
             <div class="col-12 col-sm-12 col-md-6 form-contact-wrapper" style="background:#f5f5f5;">
-                <form action="" method="post">
+                <form action="" method="post" @submit.prevent="contactSubmit">
                     <div class="form-group">
                         <input style="display:block; width:100%; padding-left:10px;" type="text" name="username" v-model="form.username" id="username" placeholder="Your name and surename*" class="form-control" required>
                     </div>
@@ -30,7 +30,7 @@
                         <p>This site is protected by reCAPTCHA and the Google <span>Privacy Policy</span> and <span>Terms of Service</span> apply. By submitting this form I accept <span>Terms of use</span></p>
                     </div>
                     <div class="form-group">
-                        <button class="btn w-100" :class="{'contact-form-button': contactWidth}">Save</button>
+                        <button type="submit" class="btn w-100" :class="{'contact-form-button': contactWidth}">Save</button>
                     </div>
 
                 </form>
@@ -86,6 +86,7 @@
 
 <script>
 import { GoogleMap, Marker } from "vue3-google-map";
+// import {useToast} from 'vue-toast-notification';
 export default {
     setup() {
          const center = { lat: 40.689247, lng: -74.044502 };
@@ -106,6 +107,19 @@ export default {
             },
 
              contactWidth:false,
+        }
+    },
+    methods:{
+        contactSubmit(){
+            Axios.post('/api/contact', this.form)
+            .then(res =>{
+                    this.form.username = null,
+                    this.form.email = null,
+                    this.form.phone = null,
+                    this.form.message = null,
+                    this.$toast.success('Contact Send Successfully');
+                  
+            });
         }
     },
 

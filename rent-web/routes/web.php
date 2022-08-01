@@ -35,11 +35,28 @@ Route::group(['prefix'=>'admin','middleware' => 'auth:admin'], function (){
     Route::post('/logout', [AdminController::class, 'adminLogout'])->name('admin.logout');
 
 
-    Route::get('/add-property', [PropertyController::class, 'addProperty'])->name('admin.add.property');
+    Route::match(['get', 'post'],'/add-property', [PropertyController::class, 'addProperty'])->name('admin.add.property');
     Route::get('/view-property', [PropertyController::class, 'viewProperty'])->name('admin.view.property');
+    Route::get('/view-property_fetch', [PropertyController::class, 'fetch'])->name('admin.dynamicdependent.fetch');
+    Route::get('/view-property_fetch_city', [PropertyController::class, 'fetchCity'])->name('admin.dynamicdependent.fetch.city');
+    Route::post('/delete-property/{id}', [PropertyController::class, 'deleteProperty'])->name('admin.delete.property');
+
+    //crotaria
+
+    Route::match(['get', 'post'],'/add-croatia', [PropertyController::class, 'addCroatia'])->name('admin.add.croatia');
+
+
 
     Route::get('/view-contact', [ContactController::class, 'index'])->name('admin.view.contact');
+    Route::post('/delete-contact/{id}', [ContactController::class, 'destroy'])->name('admin.delete.contact');
     Route::get('/view-subscriber', [ContactController::class, 'subscriber'])->name('admin.view.subscriber');
+    Route::post('/delete-subscriber/{id}', [ContactController::class, 'subscriberDelete'])->name('admin.delete.subscriber');
+
+
+    Route::get('/view-agent', [\App\Http\Controllers\Admin\AgentController::class, 'index'])->name('admin.view.agent');
+    Route::match(['get', 'post'],'/add-agent', [\App\Http\Controllers\Admin\AgentController::class, 'addAgent'])->name('admin.add.agent');
+    Route::post('/delete-agent/{id}', [\App\Http\Controllers\Admin\AgentController::class, 'agentDelete'])->name('admin.delete.agent');
+
 
 
 });

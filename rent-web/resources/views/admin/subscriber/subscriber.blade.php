@@ -19,14 +19,23 @@
                                 <tr>
                                     <th>Name</th>
                                     <th>Email</th>
+                                    <th>Action</th>
 
                                 </tr>
                                 </thead>
                                 <tbody>
+                                @foreach($subscription as $sub)
                                 <tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>system@gamil.com</td>
-                                     </tr>
+                                    <td>{{$sub->name}}</td>
+                                    <td>{{$sub->email}}</td>
+                                    <td>
+                                        <form action="{{route('admin.delete.subscriber', $sub->id)}}" method="post">@csrf
+
+                                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                @endforeach
 
                                 </tbody>
                             </table>

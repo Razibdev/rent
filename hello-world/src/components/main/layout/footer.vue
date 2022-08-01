@@ -12,21 +12,21 @@
             </div>
             <div class="col-12 col-sm-12 col-md-7 signle_subscriber">
                     <div class="subscriber-sec">
-                    <form method="post">
+                    <form method="post" @submit.prevent="subscription">
                         <div class="row">
-                            <div class="col-4 col-sm-4 col-md-4">
-                                <div class="form-group">
-                                    <input type="type" :class="{'subscriber_input_m': footerWidth}" name="name" id="name" class="form-control" placeholder="Name">
+                            <div class="col-12 col-sm-6 col-md-4">
+                                <div class="form-group" >
+                                    <input type="type" v-model="form.name" :class="{'subscriber_input_m': footerWidth}" name="name" id="name" class="form-control" placeholder="Name">
                                 </div>
                             </div>
 
-                            <div class="col-4 col-sm-4 col-md-4">
+                            <div class="col-12 col-sm-6 col-md-4">
                                 <div class="form-group">
-                                    <input type="email" name="email" id="email" :class="{'subscriber_input_m': footerWidth}" class="form-control" placeholder="Email">
+                                    <input type="email" v-model="form.email" name="email" id="email" :class="{'subscriber_input_m': footerWidth}" class="form-control" placeholder="Email">
                                 </div>
                             </div>
 
-                            <div class="col-4 col-sm-4 col-md-4">
+                            <div class="col-12 col-sm-6 col-md-4">
                                 <div class="form-group">
                                     <button :class="{'subscriber_input_m': footerWidth, 'subscriber_button_m': footerWidth}" type="submit" class="btn">Subscribe</button>
                                 </div>
@@ -76,7 +76,26 @@
 export default {
       data(){
         return{
-            footerWidth: false
+            footerWidth: false,
+            form:{
+                name:null,
+                email:null
+            }
+        }
+    },
+
+    methods:{
+        subscription(){
+            Axios.post('/api/subscription', this.form)
+             .then(res =>{
+                    if(res.data.type == 'success'){
+                    this.$toast.success(res.data.message);
+
+                    }else{
+                    this.$toast.error(res.data.message);
+
+                    }
+            });
         }
     },
     mounted(){
@@ -167,6 +186,7 @@ export default {
 }
 
 .subscriber_input_m{
+    padding:0 10px;
     width: 100% !important;
 }
 

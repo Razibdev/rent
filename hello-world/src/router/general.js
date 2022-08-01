@@ -20,6 +20,7 @@ const router = [
     name: "Search",
     component: AdvanceSearch,
   },
+
 ];
 
 

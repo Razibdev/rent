@@ -21,15 +21,27 @@
                                     <th>Email</th>
                                     <th>Phone</th>
                                     <th>Message</th>
+                                    <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>system@gamil.com</td>
-                                    <td>017xxxxxxxxxx</td>
-                                    <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae debitis facilis pariatur, perspiciatis quibusdam recusandae sint? Accusamus aut cupiditate doloremque eaque eligendi enim nobis officia porro quia, similique suscipit voluptatum?</td>
-                                </tr>
+                                @foreach($contacts as $contact)
+                                    <tr>
+                                        <td>{{$contact->username}}</td>
+                                        <td>{{$contact->email}}</td>
+                                        <td>{{$contact->phone}}</td>
+                                        <td>{{$contact->message}}</td>
+                                        <td>
+                                            <form action="{{route('admin.delete.contact', $contact->id)}}" method="post">@csrf
+
+                                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                            </form></td>
+
+
+                                    </tr>
+
+
+                                @endforeach
 
                                 </tbody>
                             </table>

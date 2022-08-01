@@ -1,4 +1,5 @@
 <template>
+ <loader v-if="loader" object="#ff9633" color1="#ffffff" color2="#17fd3d" size="5" speed="2" bg="#343a40" objectbg="#999793" opacity="80" name="circular"></loader>
     <div class="container-fluid home_main_wrapper" :class="{'home_main_wrapper_mobile':homeWidth}" style="margin:20px 0">
         <div class="home_first_section" :class="{'home_first_section_mobile':homeWidth}">
           <div class="container">
@@ -16,124 +17,249 @@
             <div class="container">
               <div class="home_header_search">
                 <div class="row">
-                      <select id="mounth">
-                        <option value="hide">We Demand</option>
-                        <option value="january">January</option>
-                       </select> 
-
-                      <select id="year">
-                        <option value="hide">We Recommend</option>
-                        <option value="2010">2010</option>
-                      
-                      </select>
-
-                      <select id="feature">
-                        <option value="hide">Featured</option>
-                        <option value="2010">2010</option>
-                      </select>
-
-                      <select id="investor">
-                        <option value="hide">For Investor</option>
-                        <option value="2010">2010</option>
-                      </select>
-
-                      <select id="new_construction">
-                        <option value="hide">New Construction</option>
-                        <option value="2010">2010</option>
-                      </select>
-
-                    <select id="type">
-                        <option value="hide">Type</option>
-                        <option value="january">January</option>
+                  <div class="col-12">
+                       <div class="row">
+                    <div class="col-6 col-sm-4 col-md-2" style="padding-left:2px; padding-right:2px; height:50px;">
+                       <div style="background:black; width:100%; padding:5px; margin-right:3px; " class="form-group">
+                        <input type="checkbox" id="we_demand" v-model="selected.we_demand" value="1"> &nbsp;
+                        <label for="we_demand" style="color:white">We Demand</label>
+                       </div>
+                     </div>
+                     <div class="col-6 col-sm-4 col-md-2" style="padding-left:2px; padding-right:2px;height:50px;">
+                        <div style="background:black; width:100%; padding:5px; margin-right:3px;" >
+                          <input type="checkbox" v-model="selected.we_recommend" id="we_recommend" value="1"> &nbsp;
+                          <label for="we_recommend" style="color:white">We Recommend</label>
+                       </div>
+                     </div>
+                <div class="col-6 col-sm-4 col-md-2" style="padding-left:2px; padding-right:2px;height:50px;">
+                    <div style="background:black; width:100%; padding:5px; margin-right:3px;" >
+                          <input type="checkbox" v-model="selected.featured" id="featured" value="1"> &nbsp;
+                          <label for="featured" style="color:white">Featured</label>
+                       </div>
+                      </div>
+                <div class="col-6 col-sm-4 col-md-2" style="padding-left:2px; padding-right:2px;height:50px;">
+                   <div style="background:black; width:100%; padding:5px; margin-right:3px;" class="form-group">
+                          <input v-model="selected.for_investor" type="checkbox" id="for_investor" value="1"> &nbsp;
+                          <label for="for_investor" style="color:white">For Investor</label>
+                       </div>
+                      </div>
+                      <div class="col-6 col-sm-4 col-md-2" style="padding-left:2px; padding-right:2px; height:50px;">
+                       <div style="background:black; width:100%; padding:5px; margin-right:3px;" class="form-group">
+                          <input v-model="selected.new_construction" type="checkbox" id="new_construction" value="1"> &nbsp;
+                          <label for="new_construction" style="color:white">New Construction</label>
+                       </div>
+                      </div>
+              <div class="col-6 col-sm-4 col-md-2" style="padding-left:2px; padding-right:2px;height:50px;">
+                      <div style=" width:100%; padding: -1px;  margin-right:3px;" >
+                        <select id="type" v-model="selected.type" style="padding:5px;">
+                          <option value="" selected disabled>Type</option>
+                          <option value="Apartment">Apartment</option>
+                          <option value="Villa">Villa</option>
+                          <option value="House">House</option>
+                          <option value="Building">Building</option>
+                          <option value="Hotel">Hotel</option>
+                          <option value="Shop">Shop</option>
+                          <option value="Office">Office</option>
+                          <option value="Camp">Camp</option>
+                          <option value="Hall">Hall</option>
+                          <option value="Family Farm">Family Farm</option>
+                          <option value="Land">Land</option>
+                          <option value="Island">Island</option>
+                          <option value="Company">Company</option>
+                          <option value="Business Idea">Business Idea</option>
+                          <option value="Other">Other</option>
                     </select> 
-
-                      <select id="offer">
-                        <option value="hide">Offer</option>
-                        <option value="2010">2010</option>
+                    </div>
+                   </div>
+                <div class="col-6 col-sm-4 col-md-2" style="padding-left:2px; padding-right:2px;height:50px;">
+                    <div style=" width:100%; padding:1px; margin-right:3px;" class="form-group">
+                      <select id="offer"  v-model="selected.offer" style="padding:5px;">
+                        <option value="" selected disabled>Offer</option>
+                         <option value="Sale">Sale</option>
+                        <option value="Rent">Rent</option>
+                        <option value="Demand">Demand</option>
                       
                       </select>
-
-                      <select id="luxury">
-                        <option value="hide">Luxury</option>
-                        <option value="2010">2010</option>
+                      </div>
+                   </div>
+              <div class="col-6 col-sm-4 col-md-2" style="padding-left:2px; padding-right:2px;height:50px;">
+                    <div style=" width:100%; padding:1px; margin-right:3px;" class="form-group">
+                      <select  v-model="selected.luxury" id="luxury">
+                        <option value="" selected disabled>Luxury</option>
+                        <option value="Luxury Realty">Luxury Realty</option>
+                        <option value="Not Luxurious">Not Luxurious</option>
+                        <option value="All">All</option>
                       </select>
-
-                      <select id="about_price">
-                        <option value="hide">About Price</option>
-                        <option value="2010">2010</option>
+                    </div>
+                    </div>
+                <div class="col-6 col-sm-4 col-md-2" style="padding-left:2px; padding-right:2px;height:50px;">
+                    <div style=" width:100%; padding:1px; margin-right:3px;" class="form-group">
+                      <select  v-model="selected.about_price" id="about_price">
+                         <option value="" selected disabled>About Price</option>
+                          <option value="7 days Auctions">7 days Auctions</option>
+                          <option value="Nagotiable">Nagotiable</option>
+                          <option value="Fixed Price">Fixed Price</option>
+                          <option value="Reduced Price">Reduced Price</option>
+                          <option value="Hot Offer">Hot Offer</option>
+                          <option value="Presale Price">Presale Offer</option>
+                          <option value="Urgent">Urgent</option>
+                          <option value="Special Price">Special Price</option>
+                          <option value="Not Specified">Not Specified</option>
+                          <option value="Secret Sale">Secret Sale</option>
+                          <option value="All Prices">All Prices</option>
                       </select>
+                      </div>
+                     </div>
 
-                      <select id="min_price">
+                 <div class="col-6 col-sm-4 col-md-2" style="padding-left:2px; padding-right:2px;height:50px;">
+                    <div style=" width:100%; padding:1px; margin-right:3px;" class="form-group">
+                      <!-- <select id="min_price">
                         <option value="hide">Min Price</option>
                         <option value="2010">2010</option>
-                      </select>
+                      </select> -->
+                      <input type="text"  v-model="selected.min_price" class="form-control" placeholder="Min Price" />
 
-                    <select id="max_Price">
-                        <option value="hide">Max Price</option>
-                        <option value="january">January</option>
+                    </div>
+                   </div>
+
+                <div class="col-6 col-sm-4 col-md-2" style="padding-left:2px; padding-right:2px;height:50px;">
+                    <div style=" width:100%; padding:1px; margin-right:3px;" class="form-group">
+                    <input type="text"  v-model="selected.max_price" class="form-control" placeholder="Max Price" />
+                    </div>
+                    </div>
+
+                <!-- <div class="col-6 col-sm-4 col-md-2" style="padding-left:2px; padding-right:2px;height:50px;">
+                    <div style=" width:176px; padding:1px; margin-right:3px;" class="form-group">
+
+                      <select id="region"  v-model="selected.region" style="padding:5px;">
+                       <option value="" selected disabled>Region</option>
+                        <option value="Continental">Continental</option>
+                        <option value="Coastal">Coastal</option>
+                        <option value="Insular">Insular</option>
+                        <option value="Mountain">Mountain</option>
+                        <option value="All Regions">All Regions</option>
+                      
+                      </select>
+                    </div>
+                     </div> -->
+
+                   <div class="col-6 col-sm-4 col-md-2" style="padding-left:2px; padding-right:2px;height:50px;">
+                    <div style=" width:100%; padding:1px; margin-right:3px;" class="form-group">
+                      <select id="regionsc"  v-model="selected.region">
+                         <option value="" selected disabled>Region</option>
+                         <option value="Continental">Continental</option>
+                        <option value="Coastal">Coastal</option>
+                        <option value="Insular">Insular</option>
+                        <option value="Mountain">Mountain</option>
+                        <option value="All Regions">All Regions</option>
+                      </select>
+                      </div>
+                     </div>
+
+                 <div class="col-6 col-sm-4 col-md-2" style="padding-left:2px; padding-right:2px;height:50px;">
+                    <div style=" width:100%; padding:1px; margin-right:3px;" class="form-group">
+                      <select id="state" v-model="selected.state">
+                        <option value="" selected disabled>State</option>
+                        <option :value="sta.id" v-for="sta in state" :key="sta.id">{{sta.name}}</option>
+                      </select>
+                    </div>
+                  </div>
+
+                 <div class="col-6 col-sm-4 col-md-2" style="padding-left:2px; padding-right:2px;height:50px;">
+                    <div style=" width:100%; padding:1px; margin-right:3px;" class="form-group">
+                      <select id="city" v-model="selected.city">
+                        <option value="" selected disabled>City</option>
+                        <option :value="cit.id" v-for="cit in city" :key="cit.id">{{cit.name}}</option>
+                      </select>
+                    </div>
+                 </div>
+
+                <div class="col-6 col-sm-4 col-md-2" style="padding-left:2px; padding-right:2px;height:50px;">
+                    <div style=" width:100%; padding:1px; margin-right:3px;" class="form-group">
+                      <select id="neighborhood" v-model="selected.neighborhood">
+                        <option value="" selected disabled> Neighborhood</option>
+                        <option :value="coun.id" v-for="coun in country" :key="coun.id">{{coun.name}}</option>
+                      </select>
+                    </div>
+                </div>
+
+
+               <div class="col-6 col-sm-4 col-md-2" style="padding-left:2px; padding-right:2px;height:50px;">
+                  <div style=" width:100%; padding:1px; margin-right:3px;" class="form-group">
+                    <select id="min_rooms"  v-model="selected.min_rooms">
+                        <option value="" selected disabled>Min Rooms</option>
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
                     </select> 
+                  </div>
+               </div>
 
-                      <select id="region">
-                        <option value="hide">Region</option>
-                        <option value="2010">2010</option>
-                      
+              <div class="col-6 col-sm-4 col-md-2" style="padding-left:2px; padding-right:2px;height:50px;">
+                  <div style=" width:100%; padding:1px; margin-right:3px;" class="form-group">
+                      <select id="max_rooms" v-model="selected.max_rooms">
+                        <option value="" selected disabled>Max rooms</option>
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
                       </select>
+                  </div>
+              </div>
 
-                      <select id="state">
-                        <option value="hide">State</option>
-                        <option value="2010">2010</option>
-                      </select>
+              <div class="col-6 col-sm-4 col-md-2" style="padding-left:2px; padding-right:2px;height:50px;">
+                  <div style=" width:100%; padding:1px; margin-right:3px;" class="form-group">
+                       <input type="text"  v-model="selected.id_number" class="form-control" placeholder="ID Number" />
+                  </div>
+              </div>
 
-                      <select id="city">
-                        <option value="hide">City</option>
-                        <option value="2010">2010</option>
-                      </select>
+             <div class="col-6 col-sm-4 col-md-2" style="padding-left:2px; padding-right:2px;height:50px;">
+                  <div style=" width:100%; padding:1px; margin-right:3px;" class="form-group">
+                       <input type="text" class="form-control" placeholder="Keyword" v-model="selected.keyword" />
+                  </div>
+             </div>
 
-                      <select id="neighborhood">
-                        <option value="hide"> Neighborhood</option>
-                        <option value="2010">2010</option>
-                      </select>
+              <div class="col-6 col-sm-4 col-md-2" style="padding-left:2px; padding-right:2px;height:50px;">
+                    <div style=" width:100%; padding:1px; margin-right:3px;" class="form-group">
+                       <input type="text" class="form-control" placeholder="Min area m2" v-model="selected.min_area" />
+                    </div>
+              </div>
 
-                    <select id="min_rooms">
-                        <option value="hide">Min Rooms</option>
-                        <option value="january">January</option>
-                    </select> 
-
-                      <select id="max_rooms">
-                        <option value="hide">Max rooms</option>
-                        <option value="2010">2010</option>
-                      
-                      </select>
-
-                      <select id="id_number">
-                        <option value="hide">ID Number</option>
-                        <option value="2010">2010</option>
-                      </select>
-
-                      <select id="keyword">
-                        <option value="hide">Keyword</option>
-                        <option value="2010">2010</option>
-                      </select>
-
-                      <select id="min_area_m2">
-                        <option value="hide"> Min area m2</option>
-                        <option value="2010">2010</option>
-                      </select>
-
-                    <select id="max_area_2">
-                        <option value="hide">Max area m2</option>
-                        <option value="2010">2010</option>
-                      
-                      </select>
+               <div class="col-6 col-sm-4 col-md-2" style="padding-left:2px; padding-right:2px;height:50px;">
+                  <div style=" width:100%; padding:1px; margin-right:3px;" class="form-group">
+                  
+                       <input type="text" class="form-control" placeholder="Max area m2" v-model="selected.max_area" />
+                  
+                  </div>
+               </div>
                       <div class="low_now_ok" :class="{'low_now_ok_mobile': homeWidth}" style="position: relative;
         display: inline; float: right;">
                         <button type="button" @click="advanced" class="search_button advanced_search">ADVANCED</button>
 
-                        <button type="button"  class="search_button clear_search">CLEAR</button>
+                        <button @click="clearData" type="button"  class="search_button clear_search">CLEAR</button>
 
                         <button type="button" @click="bymapd" class="search_button bymap_search">ByMap</button>
                       </div>
                 </div>
+                  </div>
+                </div>
+              
+               
               </div>
             </div>
 
@@ -144,52 +270,52 @@
         <div class="container">
              <div class="row check-box-search" style="margin-top: 30px;">
                 <div class="col-6 col-sm-6 col-md-3">
-                     <div class="form-group">
-                    <input type="checkbox" id="html">
-                    <label for="html">New Project</label>
+                    <div class="form-group">
+                    <input type="checkbox" v-model="selected.new_project" id="new_project" value="1">
+                    <label for="new_project">New Project</label>
                     </div>
                     <div class="form-group">
-                    <input type="checkbox" id="css">
-                    <label for="css">For Exchange</label>
+                    <input type="checkbox" v-model="selected.for_exchange" value="1" id="for_exchange">
+                    <label for="for_exchange">For Exchange</label>
                     </div>
                     <div class="form-group">
-                    <input type="checkbox" id="javascript">
-                    <label for="javascript">Adapted For Disabled</label>
+                    <input type="checkbox" id="adapted_for_disabled"  v-model="selected.adapted_for_disabled" value="1" >
+                    <label for="adapted_for_disabled">Adapted For Disabled</label>
                     </div>
 
                      <div class="form-group">
-                        <input type="checkbox" id="javascript">
-                        <label for="javascript">Paratialy Furnished</label>
+                        <input type="checkbox" id="paratialy_furnished"  v-model="selected.paratialy_furnished" value="1">
+                        <label for="paratialy_furnished">Paratialy Furnished</label>
                     </div>
                     <div class="form-group">
-                        <input type="checkbox" id="javascript">
-                        <label for="javascript">Unfurnished</label>
+                        <input type="checkbox" id="unfurnished"  v-model="selected.unfurnished" value="1">
+                        <label for="unfurnished">Unfurnished</label>
                     </div>
                 </div>
 
 
                 <div class="col-6 col-sm-6 col-md-3">
                      <div class="form-group">
-                    <input type="checkbox" id="html">
-                    <label for="html">Garage</label>
+                    <input type="checkbox" id="garage" v-model="selected.garage" value="1">
+                    <label for="garage">Garage</label>
                     </div>
                     <div class="form-group">
-                    <input type="checkbox" id="css">
-                    <label for="css">Private Parking</label>
+                    <input type="checkbox" id="private_parking" v-model="selected.private_parking" value="1">
+                    <label for="private_parking">Private Parking</label>
                     </div>
                     <div class="form-group">
-                    <input type="checkbox" id="javascript">
-                    <label for="javascript">Lift</label>
-                    </div>
-
-                    <div class="form-group">
-                    <input type="checkbox" id="javascript">
-                    <label for="javascript">Pool</label>
+                    <input type="checkbox" id="lift_h" v-model="selected.lift" value="1">
+                    <label for="lift_h">Lift</label>
                     </div>
 
                     <div class="form-group">
-                    <input type="checkbox" id="javascript">
-                    <label for="javascript">Balcony Loggia Terrage</label>
+                    <input type="checkbox" id="pool_h" v-model="selected.pool" value="1">
+                    <label for="pool_h">Pool</label>
+                    </div>
+
+                    <div class="form-group">
+                    <input type="checkbox" id="balcony_h" v-model="selected.balcony" value="1">
+                    <label for="balcony_h">Balcony Loggia Terrage</label>
                     </div>
                 </div>
 
@@ -197,69 +323,86 @@
 
                 <div class="col-6 col-sm-6 col-md-3">
                      <div class="form-group">
-                    <input type="checkbox" id="html">
-                    <label for="html">Beachfront</label>
+                    <input type="checkbox" id="beachfront_h" v-model="selected.beachfront" value="1">
+                    <label for="beachfront_h">Beachfront</label>
                     </div>
                     <div class="form-group">
-                    <input type="checkbox" id="css">
-                    <label for="css">Seaview</label>
+                    <input type="checkbox" id="seaview_h" v-model="selected.seaview" value="1">
+                    <label for="seaview_h">Seaview</label>
                     </div>
                     <div class="form-group">
-                    <input type="checkbox" id="javascript">
-                    <label for="javascript">Downtown</label>
-                    </div>
-
-                    <div class="form-group">
-                    <input type="checkbox" id="javascript">
-                    <label for="javascript">Pedestrian zone</label>
+                    <input type="checkbox" id="downtown_h"  v-model="selected.downtown" value="1" >
+                    <label for="downtown_h">Downtown</label>
                     </div>
 
                     <div class="form-group">
-                    <input type="checkbox" id="javascript">
-                    <label for="javascript">Pedestrian zone</label>
+                    <input type="checkbox" id="pedestrian_zone_h" v-model="selected.pedestrian_zone" value="1" >
+                    <label for="pedestrian_zone_h">Pedestrian zone</label>
                     </div>
 
+                
+
                     <div class="form-group">
-                    <input type="checkbox" id="javascript">
-                    <label for="javascript">Elite Part</label>
+                    <input type="checkbox" id="elite_part_h" v-model="selected.elite_part" value="1">
+                    <label for="elite_part_h" >Elite Part</label>
                     </div>
                 </div>
 
 
                  <div class="col-6 col-sm-6 col-md-3">
                      <div class="form-group">
-                    <input type="checkbox" id="html">
-                    <label for="html">Excellent Location</label>
+                    <input type="checkbox" id="excellent_location_h" v-model="selected.excellent_location" value="1">
+                    <label for="excellent_location_h">Excellent Location</label>
                     </div>
                     <div class="form-group">
-                    <input type="checkbox" id="css">
-                    <label for="css">Popular destination</label>
+                    <input type="checkbox" id="popular_destination_h"  v-model="selected.popular_destination" value="1">
+                    <label for="popular_destination_h">Popular destination</label>
                     </div>
                     <div class="form-group">
-                    <input type="checkbox" id="javascript">
-                    <label for="javascript">Business zone</label>
-                    </div>
-
-                    <div class="form-group">
-                    <input type="checkbox" id="javascript">
-                    <label for="javascript">Outside City</label>
+                    <input type="checkbox" id="business_zone_h"  v-model="selected.business_zone" value="1">
+                    <label for="business_zone_h" >Business zone</label>
                     </div>
 
                     <div class="form-group">
-                    <input type="checkbox" id="javascript">
-                    <label for="javascript">New settlement</label>
+                    <input type="checkbox" id="outsize_city_h" v-model="selected.outside_city" value="1">
+                    <label for="outsize_city_h" >Outside City</label>
                     </div>
 
                     <div class="form-group">
-                    <input type="checkbox" id="javascript">
-                    <label for="javascript">Fully Furnished</label>
+                    <input type="checkbox" id="new_settlement_h"  v-model="selected.new_settlement" value="1">
+                    <label for="new_settlement_h">New settlement</label>
+                    </div>
+
+                    <div class="form-group">
+                    <input type="checkbox" id="fully_furnished" v-model="selected.fully_furnished" value="1">
+                    <label for="fully_furnished" >Fully Furnished</label>
                     </div>
                 </div>
                 </div>
         </div>
       </div>
 
-     <PageWithAddress v-if="bymap" />
+     <!-- <PageWithAddress v-if="bymap" /> -->
+
+     <div class="container-fluid" v-show="bymap">
+        <div class="container">
+           <div class="row check-box-search" style="margin-top: 30px;">
+                <div class="col-6 col-sm-6 col-md-6">
+                  <input  ref="streetRef"  type="text" class="form-control" placeholder="Type address..." />
+
+
+                  <!-- <input v-model="selected.address" type="text" class="form-control" id="search_input" placeholder="Type address..." /> -->
+                </div>
+
+                <div class="col-6 col-sm-6 col-md-6">
+                 <button @click="bymapFilter" style="background:red;" class="search_button">ByMap</button>
+                </div>
+            </div>
+
+          </div>
+       </div>
+
+     
 
       <div class="container-fluid">
            <div class="property_section" style="overflow:hidden; ">
@@ -272,35 +415,19 @@
                   <div class="property_wrapper">
                       <div class="row">
 
-                        <div class="col-12 col-sm-6 col-md-3">
+                        <div class="col-12 col-sm-6 col-md-3" style="filter:drop-shadow(0px 8px 18px rgba(0, 0, 0, 0.07));background: #fff; padding-left:0; padding-right:0px;" v-for="(property, index) in properties" :key="property.id">
                           <div class="image" :class="{'image_mobile': homeWidth}">
-                            <p>SALE</p>
+                            <p v-if="property.offer=='Sale'" style="background:red">{{property.offer}}</p>
+                            <p v-else>{{property.offer}}</p>
 
-                          <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+                          <div :id="'carousel-'+index" class="carousel slide" data-ride="carousel">
                             <ol class="carousel-indicators">
-                              <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-                              <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-                              <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+                              <li :data-target="'#carousel-'+index" data-slide-to="0" class="active"></li>
+                              <li :data-target="'#carousel-'+index" data-slide-to="1"></li>
+                              <li :data-target="'#carousel-'+index" data-slide-to="2"></li>
                             </ol>
                             <div class="carousel-inner">
-                              <div class="carousel-item active">
-                                <img src="@/assets/home/property1.jpg" class="d-block w-100" alt="...">
-                                <div class="carousel-caption d-none d-md-block">
-                                 
-                                </div>
-                              </div>
-                              <div class="carousel-item">
-                                <img src="@/assets/home/property1.jpg" class="d-block w-100" alt="...">
-                                <div class="carousel-caption d-none d-md-block">
-                                 
-                                </div>
-                              </div>
-                              <div class="carousel-item">
-                                <img src="@/assets/home/property1.jpg" class="d-block w-100" alt="...">
-                                <div class="carousel-caption d-none d-md-block">
-                                 
-                                </div>
-                              </div>
+                             <part :part="property.upload_image"></part>
                             </div>
                             
                           </div>
@@ -323,256 +450,36 @@
                          <hr style="margin: 10px 0px;">
 
 
-                            <div class="property_title">
-                              <h4>Pantovčak, luxury apartment, 2 parking spaces, rent</h4>
+                            <div style="cursor:pointer" class="property_title">
+                              <h4 @click="singleProperty(property.id)">Pantovčak, luxury apartment, 2 parking spaces, rent</h4>
                             </div>
 
                             <div class="property_second" :class="{'property_second_mobile':homeWidth}">
                               <ul>
-                                <li><span><img src="@/assets/icon/small/bed.png" alt="bed icon"></span> 3+ living room</li>
-                                <li> &nbsp;  <span><img src="@/assets/icon/small/bath.png" alt="bath icon"></span>2</li>
-                                <li>  &nbsp;<span><img src="@/assets/icon/small/vector-square.png" alt=""></span> 160 m<sup>2</sup></li>
+                                <li><span><img src="@/assets/icon/small/bed.png" alt="bed icon"></span> {{property.bedrooms}}+ living room</li>
+                                <li> &nbsp;  <span><img src="@/assets/icon/small/bath.png" alt="bath icon"></span>{{property.bathrooms}}</li>
+                                <li>  &nbsp;<span><img src="@/assets/icon/small/vector-square.png" alt=""></span> {{property.property_area}} m<sup>2</sup></li>
                               </ul>
                             </div>
 
                             <div class="property_third">
-                              <div class="row">
-                                <div class="col-5 col-sm-5 col-md-5">
-                                    <h4>520.000€</h4>
+                              <div class="row" style="padding-left:10px">
+                                <div class="col-5 col-sm-5 col-md-5" >
+                                    <h4 v-if="property.currency = 'euro'">{{property.property_price}}€</h4>
+
+                                    <h4 v-else>{{property.property_price}}$</h4>
                                 </div>
                                 <div class="col-7 col-sm-7 col-md-7">
-                                  <h4>7 Days Auction</h4>
+                                  <h4>{{property.about_price}}</h4>
                                 </div>
                               </div>
                             </div>
                         </div>
 
-                         <div class="col-12 col-sm-6 col-md-3">
-                          <div class="image" :class="{'image_mobile': homeWidth}">
-                            <p>SALE</p>
 
 
-                          <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-                            <ol class="carousel-indicators">
-                              <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-                              <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-                              <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-                            </ol>
-                            <div class="carousel-inner">
-                              <div class="carousel-item active">
-                                <img src="@/assets/home/property1.jpg" class="d-block w-100" alt="...">
-                                <div class="carousel-caption d-none d-md-block">
-                                 
-                                </div>
-                              </div>
-                              <div class="carousel-item">
-                                <img src="@/assets/home/property1.jpg" class="d-block w-100" alt="...">
-                                <div class="carousel-caption d-none d-md-block">
-                                 
-                                </div>
-                              </div>
-                              <div class="carousel-item">
-                                <img src="@/assets/home/property1.jpg" class="d-block w-100" alt="...">
-                                <div class="carousel-caption d-none d-md-block">
-                                  
-                                </div>
-                              </div>
-                            </div>
-                            
-                          </div>
-
-                          </div>
-                          <div class="icon">
-                            <span><img src="@/assets/icon/small/phone-alt.png" alt=""></span>
-
-                             <span><img src="@/assets/icon/small/envelope-open.png" alt=""></span>
-
-                            <span><img src="@/assets/icon/small/share-alt.png" alt=""></span>
-
-                            <span><img src="@/assets/icon/small/envelope-open-text.png" alt=""></span>
-
-                            <span><img src="@/assets/icon/small/arrows-alt-h.png" alt=""></span>
-
-                            <span><img src="@/assets/icon/small/download.png" alt=""></span>
-                          </div>
-
-                         <hr style="margin: 10px 0px;">
-
-
-                            <div class="property_title">
-                              <h4>Pantovčak, luxury apartment, 2 parking spaces, rent</h4>
-                            </div>
-
-                            <div class="property_second" :class="{'property_second_mobile':homeWidth}">
-                              <ul>
-                                <li><span><img src="@/assets/icon/small/bed.png" alt="bed icon"></span> 3+ living room</li>
-                                <li> &nbsp; &nbsp;<span><img src="@/assets/icon/small/bath.png" alt="bath icon"></span>2</li>
-                                <li><span><img src="@/assets/icon/small/vector-square.png" alt=""></span> 160 m<sup>2</sup></li>
-                              </ul>
-                            </div>
-
-                            <div class="property_third">
-                              <div class="row">
-                                <div class="col-5 col-sm-5 col-md-5">
-                                    <h4>520.000€</h4>
-                                </div>
-                                <div class="col-7 col-sm-7 col-md-7">
-                                  <h4>7 Days Auction</h4>
-                                </div>
-                              </div>
-                            </div>
-                        </div>
-
-                         <div class="col-12 col-sm-6 col-md-3">
-                          <div class="image" :class="{'image_mobile': homeWidth}">
-                            <p>SALE</p>
-
-
-                          <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-                            <ol class="carousel-indicators">
-                              <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-                              <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-                              <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-                            </ol>
-                            <div class="carousel-inner">
-                              <div class="carousel-item active">
-                                <img src="@/assets/home/property1.jpg" class="d-block w-100" alt="...">
-                                <div class="carousel-caption d-none d-md-block">
-                                 
-                                </div>
-                              </div>
-                              <div class="carousel-item">
-                                <img src="@/assets/home/property1.jpg" class="d-block w-100" alt="...">
-                                <div class="carousel-caption d-none d-md-block">
-                                 
-                                </div>
-                              </div>
-                              <div class="carousel-item">
-                                <img src="@/assets/home/property1.jpg" class="d-block w-100" alt="...">
-                                <div class="carousel-caption d-none d-md-block">
-                                 
-                                </div>
-                              </div>
-                            </div>
-                            
-                          </div>
-
-                          </div>
-                          <div class="icon">
-                            <span><img src="@/assets/icon/small/phone-alt.png" alt=""></span>
-
-                             <span><img src="@/assets/icon/small/envelope-open.png" alt=""></span>
-
-                            <span><img src="@/assets/icon/small/share-alt.png" alt=""></span>
-
-                            <span><img src="@/assets/icon/small/envelope-open-text.png" alt=""></span>
-
-                            <span><img src="@/assets/icon/small/arrows-alt-h.png" alt=""></span>
-
-                            <span><img src="@/assets/icon/small/download.png" alt=""></span>
-                          </div>
-
-                         <hr style="margin: 10px 0px;">
-
-
-                            <div class="property_title">
-                              <h4>Pantovčak, luxury apartment, 2 parking spaces, rent</h4>
-                            </div>
-
-                            <div class="property_second" :class="{'property_second_mobile':homeWidth}">
-                              <ul>
-                                <li><span><img src="@/assets/icon/small/bed.png" alt="bed icon"></span> 3+ living room</li>
-                                <li> &nbsp; &nbsp;<span><img src="@/assets/icon/small/bath.png" alt="bath icon"></span>2</li>
-                                <li><span><img src="@/assets/icon/small/vector-square.png" alt=""></span> 160 m<sup>2</sup></li>
-                              </ul>
-                            </div>
-
-                            <div class="property_third">
-                              <div class="row">
-                                <div class="col-5 col-sm-5 col-md-5">
-                                    <h4>520.000€</h4>
-                                </div>
-                                <div class="col-7 col-sm-7 col-md-7">
-                                  <h4>7 Days Auction</h4>
-                                </div>
-                              </div>
-                            </div>
-                        </div>
-
-                         <div class="col-12 col-sm-6 col-md-3">
-                          <div class="image" :class="{'image_mobile': homeWidth}">
-                            <p>SALE</p>
-
-
-                          <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-                            <ol class="carousel-indicators">
-                              <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-                              <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-                              <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-                            </ol>
-                            <div class="carousel-inner">
-                              <div class="carousel-item active">
-                                <img src="@/assets/home/property1.jpg" class="d-block w-100" alt="...">
-                                <div class="carousel-caption d-none d-md-block">
-                                 
-                                </div>
-                              </div>
-                              <div class="carousel-item">
-                                <img src="@/assets/home/property1.jpg" class="d-block w-100" alt="...">
-                                <div class="carousel-caption d-none d-md-block">
-                                  
-                                </div>
-                              </div>
-                              <div class="carousel-item">
-                                <img src="@/assets/home/property1.jpg" class="d-block w-100" alt="...">
-                                <div class="carousel-caption d-none d-md-block">
-                                 
-                                </div>
-                              </div>
-                            </div>
-                            
-                          </div>
-
-                          </div>
-                          <div class="icon">
-                            <span><img src="@/assets/icon/small/phone-alt.png" alt=""></span>
-
-                             <span><img src="@/assets/icon/small/envelope-open.png" alt=""></span>
-
-                            <span><img src="@/assets/icon/small/share-alt.png" alt=""></span>
-
-                            <span><img src="@/assets/icon/small/envelope-open-text.png" alt=""></span>
-
-                            <span><img src="@/assets/icon/small/arrows-alt-h.png" alt=""></span>
-
-                            <span><img src="@/assets/icon/small/download.png" alt=""></span>
-                          </div>
-
-                         <hr style="margin: 10px 0px;">
-
-
-                            <div class="property_title">
-                              <h4>Pantovčak, luxury apartment, 2 parking spaces, rent</h4>
-                            </div>
-
-                            <div class="property_second" :class="{'property_second_mobile':homeWidth}">
-                              <ul>
-                                <li><span><img src="@/assets/icon/small/bed.png" alt="bed icon"></span> 3+ living room</li>
-                                <li> &nbsp; &nbsp;<span><img src="@/assets/icon/small/bath.png" alt="bath icon"></span>2</li>
-                                <li><span><img src="@/assets/icon/small/vector-square.png" alt=""></span> 160 m<sup>2</sup></li>
-                              </ul>
-                            </div>
-
-                            <div class="property_third">
-                              <div class="row">
-                                <div class="col-5 col-sm-5 col-md-5">
-                                    <h4>520.000€</h4>
-                                </div>
-                                <div class="col-7 col-sm-7 col-md-7">
-                                  <h4>7 Days Auction</h4>
-                                </div>
-                              </div>
-                            </div>
+                        <div v-if="moreExists" style="text-align:center;" class="col-12 col-sm-12 col-md-">
+                          <button type="button" @click="loadMore">Load more listing</button>
                         </div>
 
                       </div>
@@ -584,45 +491,33 @@
 
       </div>
 
+
+
+
+
+
+
+
+
+
+
+
       <div class="container-fluid" style="padding-right:0px; padding-left:0px">
         <div class="move_in_croatia">
-          <div class="container">
+          <div class="container" :class="{'croatia_move': homeWidth}" style="height:600px">
             <div class="row">
               <div class="col-6 col-sm-4 col-md-2" style="text-align:center">
                 <h4>MOVE IN CROATIA</h4>
-                <button class="move_in_croatia"><img src="@/assets/icon/small/view_listing_arrow-right.png" alt=""></button>
+                <button @click="moveInCroatia" class="move_in_croatia"><img src="@/assets/icon/small/view_listing_arrow-right.png" alt=""></button>
               </div>
 
-              <div class="col-6 col-sm-4 col-md-2" style="text-align:center">
-                <img style="width:100%" src="@/assets/home/rectangle_37.jpg" alt="">
-                <h5>Continental </h5>
+
+              <div v-for="region in regionProperties" :key="region.id" class="col-6 col-sm-4 col-md-2" style="text-align:center">
+                <img style="width:100%; height:489px;" :src="regionImage(region.featured_imaged)" alt="">
+                <h5>{{region.region}} </h5>
                 <h5>Region</h5>
-                <button style="margin:10px 0;"><img src="@/assets/icon/small/offer_arrow_right.png" alt=""></button>
+                <button style="margin:10px 0;" @click="singleProperty(region.id)"><img src="@/assets/icon/small/offer_arrow_right.png" alt=""></button>
               </div>
-
-
-               <div class="col-6 col-sm-4 col-md-2" style="text-align:center">
-                <img style="width:100%" src="@/assets/home/rectangle_37_1.jpg" alt="">
-                <h5>Continental </h5>
-                <h5>Region</h5>
-                <button style="margin:10px 0;"><img src="@/assets/icon/small/offer_arrow_right.png" alt=""></button>
-              </div>
-
-               <div class="col-6 col-sm-4 col-md-2" style="text-align:center">
-                <img style="width:100%" src="@/assets/home/rectangle_37_2.jpg" alt="">
-                <h5>Continental </h5>
-                <h5>Region</h5>
-                <button style="margin:10px 0;"><img src="@/assets/icon/small/offer_arrow_right.png" alt=""></button>
-              </div>
-
-               <div class="col-6 col-sm-4 col-md-2" style="text-align:center;">
-                <img style="width:100%" src="@/assets/home/rectangle_37_3.jpg" alt="">
-                <h5>Continental </h5>
-                <h5>Region</h5>
-                <button style="margin:10px 0;"> <img src="@/assets/icon/small/offer_arrow_right.png" alt=""></button>
-              </div>
-
-
             </div>
           </div>
 
@@ -632,32 +527,23 @@
                 <div class="col-12 col-sm-12 col-md-12">
                   <h4>For Investors</h4>
                 </div>
-                <div class="col-6 col-sm-4 col-md-3 single_investor">
-                  <img class="investor_image" :class="{'investor_image_mobile':homeWidth}" src="@/assets/home/rectangle_43.jpg" alt="for investors">
-                  <h5>Land For Residential And Business Building</h5>
-                  <button><img src="@/assets/icon/small/offer_arrow_right.png" alt=""></button>
+
+
+
+
+
+                <div v-for="investor in forInvestor" :key="investor.id" class="col-6 col-sm-4 col-md-3 single_investor">
+                  <img class="investor_image" :class="{'investor_image_mobile':homeWidth}" :src="InvestorImage(investor.featured_imaged)" alt="for investors">
+                  <h5>{{investor.property_title}}</h5>
+                  <button @click="singleProperty(investor.id)"><img  src="@/assets/icon/small/offer_arrow_right.png" alt=""></button>
                 </div>
 
-                <div class="col-6 col-sm-4 col-md-3 single_investor">
-                  <img class="investor_image" :class="{'investor_image_mobile':homeWidth}" src="@/assets/home/rectangle_43_1.jpg" alt="for investors">
-                  <h5>Land For Residential And Business Building</h5>
-                  <button><img src="@/assets/icon/small/offer_arrow_right.png" alt=""></button>
-                </div>
 
-                <div class="col-6 col-sm-4 col-md-3 single_investor">
-                  <img class="investor_image" :class="{'investor_image_mobile':homeWidth}" src="@/assets/home/rectangle_43_2.jpg" alt="for investors">
-                  <h5>Land For Residential And Business Building</h5>
-                  <button><img src="@/assets/icon/small/offer_arrow_right.png" alt=""></button>
-                </div>
 
-                <div class="col-6 col-sm-4 col-md-3 single_investor">
-                  <img class="investor_image" :class="{'investor_image_mobile':homeWidth}" src="@/assets/home/mount_rezion.png" alt="for investors">
-                  <h5>Land For Residential And Business Building</h5>
-                  <button><img src="@/assets/icon/small/offer_arrow_right.png" alt=""></button>
-                </div>
+
 
                 <div class="col-12 col-sm-12 col-md-12">
-                    <img class="investor_add_section" src="@/assets/home/for_investor.png" alt="">
+                    <img class="investor_add_section"  src="@/assets/home/for_investor.png" alt="">
                 </div>
 
                 
@@ -676,44 +562,12 @@
                   <h4>Featured Real Estate This Month</h4>
                 </div>
 
-                <div class="col-6 col-sm-4 col-md-3">
-                  <img class="featured_real_state_part_image" src="@/assets/home/property.jpg" alt="property">
-                  <h5>Ban Jelacic Square, apartment 76m2, rent</h5>
-                  <button><img src="@/assets/home/more_details_arrow-right.png" alt=""></button>
-                </div>
 
-                <div class="col-6 col-sm-4 col-md-3">
-                  <img class="featured_real_state_part_image" src="@/assets/home/mask_group-2.png" alt="property">
-                  <h5>Ban Jelacic Square, apartment 76m2, rent</h5>
-                  <button><img src="@/assets/home/more_details_arrow-right.png" alt=""></button>
-                </div>
 
-                <div class="col-6 col-sm-4 col-md-3">
-                  <img class="featured_real_state_part_image" src="@/assets/home/mask_group_3.png" alt="property">
-                  <h5>Ban Jelacic Square, apartment 76m2, rent</h5>
-                  <button><img src="@/assets/home/more_details_arrow-right.png" alt=""></button>
-                </div>
-
-                <div class="col-6 col-sm-4 col-md-3">
-                  <img class="featured_real_state_part_image" src="@/assets/home/mask_group_1.png" alt="property">
-                  <h5>Ban Jelacic Square, apartment 76m2, rent</h5>
-                  <button><img src="@/assets/home/more_details_arrow-right.png" alt=""></button>
-                </div>
-
-                <div class="col-6 col-sm-4 col-md-3">
-                  <img class="featured_real_state_part_image" src="@/assets/home/mask_group-2.png" alt="property">
-                  <h5>Ban Jelacic Square, apartment 76m2, rent</h5>
-                  <button><img src="@/assets/home/more_details_arrow-right.png" alt=""></button>
-                </div>
-
-                <div class="col-6 col-sm-4 col-md-3">
-                  <img class="featured_real_state_part_image" src="@/assets/home/mask_group.png" alt="property">
-                  <h5>Ban Jelacic Square, apartment 76m2, rent</h5>
-                  <button><img src="@/assets/home/more_details_arrow-right.png" alt=""></button>
-                </div>
-
-                <div class="col-12 col-sm-12 col-md-12">
-                  <img class="feature_real_state_part_add" src="@/assets/home/add_feature_real_ested.png" alt="">
+                <div v-for="feature in forFeature" :key="feature.id" class="col-6 col-sm-4 col-md-3" style="padding-left:0px; padding-right:0px;">
+                  <img class="featured_real_state_part_image" :src="InvestorImage(feature.featured_imaged)" alt="property">
+                  <h5>{{feature.property_title}}</h5>
+                  <button @click="singleProperty(feature.id)" ><img src="@/assets/home/more_details_arrow-right.png" alt=""></button>
                 </div>
 
               </div>
@@ -722,22 +576,23 @@
                 <div class="col-12 col-sm-12 col-md-12">
                   <h4 style="margin-top:10px; margin-bottom:20px;">Move To Neighbouring Countries</h4>
                 </div>
-                <div class="col-6 col-sm-4 col-md-3">
+
+                <div @click="montenegro(4)" class="col-6 col-sm-4 col-md-3">
                   <img class="move_to_neighbouring_image" src="@/assets/home/rectangle_50.jpg" alt="">
                   <h5>Montenegro</h5>
                 </div>
 
-                <div class="col-6 col-sm-4 col-md-3">
+                <div @click="montenegro(148)" class="col-6 col-sm-4 col-md-3">
                   <img class="move_to_neighbouring_image" src="@/assets/home/rectangle_50_1.jpg" alt="">
-                  <h5>Montenegro</h5>
+                  <h5>Bosnia&Herzegovina</h5>
                 </div>
 
-                <div class="col-6 col-sm-4 col-md-3">
+                <div @click="montenegro(198)" class="col-6 col-sm-4 col-md-3">
                   <img class="move_to_neighbouring_image" src="@/assets/home/rectangle_50_2.jpg" alt="">
-                  <h5>Montenegro</h5>
+                  <h5>Slovinia</h5>
                 </div>
 
-                <div class="col-6 col-sm-4 col-md-3">
+                <div @click="montenegro('italiandaus')" class="col-6 col-sm-4 col-md-3">
                   <img class="move_to_neighbouring_image" src="@/assets/home/rectangle_50_3.jpg" alt="">
                   <h5>Montenegro</h5>
                 </div>
@@ -752,100 +607,375 @@
 </template>
 
 <script>
+import {onMounted, ref} from 'vue';
+import Part from './part.vue'
 import PageWithAddress from '@/components/layout/search/PageWithAddress.vue'
+import axios from 'axios';
 export default {
   components:{
-    PageWithAddress
+    PageWithAddress,Part
   },
     setup() {
+        
+        const streetRef = ref();
+        onMounted(()=>{
+            let autocomplete = new google.maps.places.Autocomplete(streetRef.value, {
+            types:["address"],
+            fields:["address_components"]
+
+        });
+        
+         google.maps.event.addListener(autocomplete, "place_changed", ()=>{
+          var place = autocomplete.getPlace()
+            // console.log(place.address_components[0].long_name);
+            // _this.selected.address.push(place.address_components[0].long_name);
+            document.getElementById('search_input').value = place.address_components[0].long_name;
+            
+         });
+      
+        });
+
+        return {streetRef};
         
     },
 
      data(){
         return{
             homeWidth: false,
+            loader:true,
             advance_show:false,
-            bymap:false
+            bymap:false,
+            users:[],
+            properties:[],
+            moreExists:true,
+            nextPage:1,
+            regionProperties:[],
+            forInvestor:[],
+            forFeature:[],
+            country:[],
+            city:[],
+            state:[],
+            montenegrolist:[],
+            address:'',
+            form:{
+              type:''
+            },
+            selected:{
+              we_demand:0,
+              we_recommend:0,
+              featured:0,
+              for_investor:0,
+              new_construction:0,
+              type:'',
+              offer:'',
+              luxury:'',
+              about_price:'',
+              min_price:'',
+              max_price:'',
+              region:'',
+              state:'',
+              city:'',
+              neighborhood:'',
+              min_rooms:'',
+              max_rooms:'',
+              id_number:'',
+              min_area:'',
+              max_area:'',
+              keyword:'',
+              address:'',
+              new_project:0,
+              for_exchange:0,
+              adapted_for_disabled:0,
+              paratialy_furnished:0,
+              unfurnished:0,
+              garage:0,
+              private_parking:0,
+              lift:0,
+              pool:0,
+              balcony:0,
+              beachfront:0,
+              seaview:0,
+              downtown:0,
+              pedestrian_zone:0,
+              elite_part:0,
+              excellent_location:0,
+              popular_destination:0,
+              business_zone:0,
+              outside_city:0,
+              new_settlement:0,
+              fully_furnished:0
+             
+            }
+
         }
         },
+
+         watch: {
+            selected: {
+                handler: function () {
+                    this.loadProperty();
+                },
+                deep:true
+                
+            }
+        },
+
         methods:{
+          clearData(){
+             this.loadProperty();
+             
+          },
+         regionImage(image){
+          return process.env.VUE_APP_API_URL+'/'+image;
+         },
+         InvestorImage(image){
+          return process.env.VUE_APP_API_URL+'/'+image;
+         },
           advanced(){
             this.advance_show = !this.advance_show;
           },
 
           bymapd(){
             this.bymap = !this.bymap;
+          },
+
+          bymapFilter(){
+            this.loadProperty();
+            // this.$refs.streetRef.value
+            this.selected.address = this.$refs.streetRef.value;
+            // console.log(this.selected);
+          },
+
+          loadProperty(){
+            // try{
+              // const properties = axios.get('/api/property',{
+              //   params: this.selected
+              // });
+
+              // console.log(this.selected);
+
+              axios.get('/api/property',{
+                params: this.selected
+              }).then((response) => {
+                         this.properties = response.data.property.data;
+                         console.log(response.data.property.data);
+                         this.loader = false;
+                    });
+
+              // this.properties = properties.data.property.data;
+             
+              
+            // }catch(error){
+
+            // }
+          },
+
+
+
+          async loadMore(){
+              try{
+              const properties = await axios.get(`/api/property?page=${this.nextPage}`);
+              
+              if(properties.data.property.current_page < properties.data.property.last_page){
+                this.moreExists = true;
+                this.nextPage = properties.data.property.current_page +1;
+                 properties.data.property.data.forEach(data => {
+                 this.properties.push(data);
+              });
+
+              }else{
+                this.moreExists = false;
+              }
+            }catch(error){
+
+            }
+          },
+
+          async regionProperty(){
+            try{
+                 const properties = await axios.get('/api/property-region');
+                 this.regionProperties = properties.data.property;
+            }catch(error){
+
+            }
+          },
+
+          async countries(){
+             try{
+                 const country = await axios.get('/api/country');
+                 this.country = country.data.country;
+                 console.log(country.data.country);
+
+
+                 const city = await axios.get('/api/city');
+                 this.city = city.data.city;
+
+                  const state = await axios.get('/api/state');
+                 this.state = state.data.state;
+            }catch(error){
+
+            }
+          },
+         
+
+
+         async investorProperty(){
+            try{
+                 const properties = await axios.get('/api/property-for-investor');
+                 this.forInvestor = properties.data.property;
+            }catch(error){
+
+            }
+          },
+
+
+           async featuredProperty(){
+            try{
+                 const properties = await axios.get('/api/property-for-featured');
+                 this.forFeature = properties.data.property;
+            }catch(error){
+
+            }
+          },
+
+           async montenegro(id){
+               try{
+
+                  this.$router.push({
+                  path: '/neighbouring/'+id, 
+              });
+
+                }catch(error){
+
+                }
+          },
+           async singleProperty(id){
+               try{
+
+                  this.$router.push({
+                  path: '/property/'+id, 
+              });
+
+                }catch(error){
+
+                }
+          },
+
+          async moveInCroatia(){
+            try{
+               this.$router.push({
+                  path: '/properties/move-in-croatia', 
+              });
+           }catch(error){
+
+                }
           }
+
+
         },
 
      created() {
+
+     
+   
+      this.regionProperty();
+      this.investorProperty();
+      this.featuredProperty();
+      this.loadProperty();
+      this.countries();
+
          if(this.$windowWidth <= 520){
             this.homeWidth = true;
             }
-           
       },
 
     mounted(){
-        $('select').each(function(){
-        var $this = $(this), numberOfOptions = $(this).children('option').length;
-    
-        $this.addClass('select-hidden'); 
-        $this.wrap('<div class="select"></div>');
-        $this.after('<div class="select-styled"></div>');
+        // var searchInput = 'search_input';
+      //  var autocomplete;
+      //     autocomplete = 
+         
+            
+          // google.maps.event.addListener(autocomplete, 'place_changed', function () {
+          //   var near_place = autocomplete.getPlace();
+          //   console.log(near_place);
+          // });
 
-        var $styledSelect = $this.next('div.select-styled');
-        $styledSelect.text($this.children('option').eq(0).text());
-    
-        var $list = $('<ul />', {
-            'class': 'select-options'
-        }).insertAfter($styledSelect);
-    
-        for (var i = 0; i < numberOfOptions; i++) {
-            $('<li />', {
-                text: $this.children('option').eq(i).text(),
-                rel: $this.children('option').eq(i).val()
-            }).appendTo($list);
-            //if ($this.children('option').eq(i).is(':selected')){
-            //  $('li[rel="' + $this.children('option').eq(i).val() + '"]').addClass('is-selected')
-            //}
-        }
-    
-        var $listItems = $list.children('li');
-    
-        $styledSelect.click(function(e) {
-            e.stopPropagation();
-            $('div.select-styled.active').not(this).each(function(){
-                $(this).removeClass('active').next('ul.select-options').hide();
-            });
-            $(this).toggleClass('active').next('ul.select-options').toggle();
-        });
-    
-        $listItems.click(function(e) {
-            e.stopPropagation();
-            $styledSelect.text($(this).text()).removeClass('active');
-            $this.val($(this).attr('rel'));
-            $list.hide();
-            //console.log($this.val());
-        });
-    
-        $(document).click(function() {
-            $styledSelect.removeClass('active');
-            $list.hide();
-        });
-
-    });
-
-
-    $('#carousel-1').carousel({
-      interval: 4000,
-      wrap: true,
-      keyboard: true
- });
+    // $('#carousel-1').carousel({
+    //   interval: 4000,
+    //   wrap: true,
+    //   keyboard: true
+    //   });
     }
 }
 </script>
  
 <style>
+.croatia_move{
+  height: 1800px !important;
+}
+select {
+
+   outline:0;
+   box-shadow:none;
+   border:0!important;
+   background: black !important;
+   background-image: none;
+   flex: 1;
+   padding: 0 .5em !important;
+   color:#fff !important;
+   cursor:pointer;
+   font-size: 1em;
+   font-family: 'Open Sans', sans-serif;
+   width:100% !important;
+   height: 40px !important;
+}
+
+.select {
+   position: relative;
+   display: flex;
+   width: 20em;
+   height: 3em;
+   line-height: 3;
+   background: #5c6664;
+   overflow: hidden;
+   border-radius: .25em;
+}
+.select::after {
+   content: '\25BC';
+   position: absolute;
+   top: 0;
+   right: 0;
+   padding: 0 1em;
+   background: #2b2e2e;
+   cursor:pointer;
+   pointer-events:none;
+   transition:.25s all ease;
+}
+.select:hover::after {
+   color: #23b499;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   .home_main_wrapper_mobile{
     height: 200vh !important;
   }
@@ -1000,7 +1130,7 @@ export default {
           }
 
           .featured_real_state_part_image{
-            width: 290px;
+            width: 100%;
             height: 285px;
             padding-right: 10px;
 
@@ -1031,8 +1161,9 @@ export default {
 
           .move_to_neighbouring_image{
             padding-right: 10px;
-            width: 293.22px;
+            width: 100%;
             height: 451.75px;
+            cursor:pointer;
           }
 
         }
@@ -1050,30 +1181,29 @@ export default {
       .property_section{
         margin:30px 0px;
         .property_title{
-          text-align: center;
           margin-bottom: 20px;
 
           h4{
             font-family: 'Lato';
             font-style: normal;
             font-weight: 400;
-            font-size: 37px;
+            font-size: 35px;
             line-height: 47px;
             color: $background;
-            text-align: center;
+            text-align: left;
           }
         }
         .property_wrapper{
           .image{
-            padding: 5px 5px;
+            padding: 5px 0px;
             position: relative;
-            width: 291px;
+            width: 100%;
             p{
               position: absolute;
               z-index: 1;
               right: 0;
               margin-top: 15px;
-              margin-right: 11px;
+              margin-right: 5px;
               padding: 8px;
               background: green;
               color: #fff;
@@ -1089,7 +1219,7 @@ export default {
 
           .icon{
             height: 29px;
-            width: 291px;
+            width: 100%;
             text-align: center;
             margin-top: 10px;
             span{
@@ -1106,12 +1236,14 @@ export default {
 
 
         .property_title{
+          padding-left: 10px;
           h4{
             font-family: 'Lato';
             font-style: normal;
             font-weight: 800;
-            font-size: 19px;
+            font-size: 17px;
             line-height: 23px;
+            text-align: left;
           }
         }
 
@@ -1125,13 +1257,14 @@ export default {
               width: 50px;
               float: left;
               margin-left: -15px;
+              font-size: 12px;
               // padding: 0px 4px;
               &:nth-child(1){
-                width: 130px !important;
+                width: 115px !important;
               }
 
                &:nth-child(3){
-                width: 80px !important;
+                width: 70px !important;
               }
             }
           }
@@ -1142,7 +1275,7 @@ export default {
             font-family: 'Lato';
             font-style: normal;
             font-weight: 700;
-            font-size: 20px;
+            font-size: 16px;
             line-height: 24px;
             color: #333333;
           }
@@ -1211,6 +1344,7 @@ export default {
       .home_header_search{
          position: absolute;
           bottom: 30px;
+          width:80%;
       }
     
     }

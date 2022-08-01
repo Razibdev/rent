@@ -28,15 +28,18 @@
             <div class="main-contact-wrapper">
                 <div class="row">
                     <div class="col-12 col-sm-12 col-md-6" style="padding-left:0px; padding-right:0px;">
-                        <img :class="{'mobile_logo':headerWidth}" style="width:265px; height:58px" src="@/assets/image/logo.png" alt="logo image">
+                        <router-link to="/">
+                             <img :class="{'mobile_logo':headerWidth}" style="width:265px; height:58px" src="@/assets/image/logo.png" alt="logo image">
+                        </router-link>
+                       
                     </div>
 
                     <div class="col-12 col-sm-12 col-md-6">
                         <ul :class="{'nav_bar_menu': headerWidth}" >
                             <li :class="{'nav_bar_list': headerWidth}" ><button class="btn ">SIGN IN</button></li>
                             <li :class="{'nav_bar_list': headerWidth}" ><a href="#">Eng</a></li>
-                            <li :class="{'nav_bar_list': headerWidth}" ><a href="#">Contact</a></li>
-                            <li :class="{'nav_bar_list': headerWidth}" ><a href="#">About</a></li>
+                            <li :class="{'nav_bar_list': headerWidth}" ><router-link to="/contact">Contact</router-link></li>
+                            <li :class="{'nav_bar_list': headerWidth}" ><router-link to="/about">About</router-link></li>
 
                         </ul>
                     </div>
@@ -75,7 +78,7 @@ export default {
         margin-top: 20px !important;
     }
     .header_mobile{
-        height:91px;
+        height:91px !important;
 
     }
 </style>
